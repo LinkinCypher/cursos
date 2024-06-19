@@ -30,7 +30,7 @@ class CursosApplicationTests {
 	void contextLoads() {
 		
 		
-		
+		/*
 		//CURSO
 		Curso nuevoCurso = new Curso();
 		nuevoCurso.setNombre("Programacion Java II");
@@ -39,7 +39,7 @@ class CursosApplicationTests {
 		nuevoCurso.setCosto(80);
 		nuevoCurso.setEstado(true);
 		servicioCurso.insertarCurso(nuevoCurso);
-		List<Curso> resultadoSelect = servicioCurso.listarCursos();			
+				
 		
 		
 		
@@ -48,13 +48,13 @@ class CursosApplicationTests {
 		//nuevoEstudiante.setIdEstudiante(1);
 		nuevoEstudiante.setNombre("Cristhian");
 		nuevoEstudiante.setApellido("Mora");
-		nuevoEstudiante.setCedulaIdentidad("1234567890");
+		nuevoEstudiante.setCedulaIdentidad("4567");
 		nuevoEstudiante.setCorreo("cristhian@mail.com");
 		nuevoEstudiante.setDireccion("Quito");
 		
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         try {
-            Date fechaNacimiento = dateFormat.parse("2000-06-19");
+            Date fechaNacimiento = dateFormat.parse("2004-04-24");
             nuevoEstudiante.setFechaNacimiento(fechaNacimiento);
         } catch (ParseException e) {
             System.out.println("Error al convertir la fecha: " + e.getMessage());
@@ -69,6 +69,34 @@ class CursosApplicationTests {
 		nuevaIscripcion.setFechainscripcion(new Date());
 		nuevaIscripcion.setFkEstudiante(nuevoEstudiante);
 		servicioInscripcion.insertarInscripcion(nuevaIscripcion);
+		*/
+		
+		
+		//LISTAR
+		List<Curso> resultadoSelect = servicioCurso.listarCursos();
+		
+		List<Estudiante>lista=servicioEstudiante.listarEstudiantes();
+		for (Estudiante estudiante : lista) {
+			System.out.println(estudiante.getIdEstudiante() + " " + estudiante.getApellido() + " " + estudiante.getNombre());
+		}
+		
+		System.out.println("Buscar por Nombre");
+		List<Estudiante>lista1=servicioEstudiante.findByNombre("Cristhian");
+		for (Estudiante estudiante : lista1) {
+			System.out.println(estudiante.getIdEstudiante() + " " + estudiante.getApellido() + " " + estudiante.getNombre());
+		}
+		
+		System.out.println("Buscar por Apellido");
+		List<Estudiante>lista2=servicioEstudiante.findByApellido("Mora");
+		for (Estudiante estudiante : lista2) {
+			System.out.println(estudiante.getIdEstudiante() + " " + estudiante.getApellido() + " " + estudiante.getNombre());
+		}
+		
+		System.out.println("Buscar por Fechas");
+		List<Estudiante>lista3=servicioEstudiante.buscarPorFechas(1994,2024);
+		for (Estudiante estudiante : lista3) {
+			System.out.println(estudiante.getIdEstudiante() + " " + estudiante.getApellido() + " " + estudiante.getNombre());
+		}
 		
 		
 		
