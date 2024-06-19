@@ -1,7 +1,7 @@
 package com.uisrael.cursos.modelo;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,10 +32,7 @@ public class Estudiante implements Serializable {
     @Column(nullable = true)
     private String correo;
     private String direccion;
-    
-    @Temporal(TemporalType.DATE)
     private Date fechaNacimiento;
-    
     private boolean estado;	
     
     @OneToMany(mappedBy = "fkEstudiante")
