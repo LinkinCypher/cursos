@@ -9,22 +9,27 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
 import lombok.Data;
 
-@Data
 @Entity
-@Table(name = "tb_inscripcion")
+@Data
 public class Inscripcion implements Serializable {
 
+	/**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idInscripcion;
-	private Date fechainscripcion;
+	private Date fechaInscripcion;
 	private boolean estado;
+	
+	@ManyToOne
+	@JoinColumn(name="id_Estudiante")
+	private Estudiante fkEstudiante;
 
 	@ManyToOne
-	@JoinColumn(name = "id_Estudiante")
-	private Estudiante fkEstudiante;
+	@JoinColumn(name="id_curso")
+	private Curso FkCurso;
 }

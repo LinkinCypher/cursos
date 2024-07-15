@@ -17,7 +17,7 @@
 					<div class="row align-items-center">
 						<div class="col-md-8">
 							<div class="page-header-title">
-								<h5 class="m-b-10">Lista de Cursos</h5>
+								<h5 class="m-b-10">Lista de Inscripcion</h5>
 								<p class="m-b-0">Lorem Ipsum is simply dummy text of the
 									printing</p>
 							</div>
@@ -43,8 +43,8 @@
 								<div class="col-sm-12">
 									<div class="card">
 										<div class="card-header">
-											<h5>Hola Mundo</h5>
-											<span> <a th:href="@{/nuevocurso}" class="btn"><i
+											
+											<span> <a th:href="@{/nuevoinscripcion}" class="btn"><i
 													class="ti-plus"></i></a>
 											</span>
 											<div class="card-header-right">
@@ -62,25 +62,23 @@
 												<thead>
 													<tr>
 														<th scope="col">Codigo</th>
-														<th scope="col">Nombre</th>
-														<th scope="col">Descripcion</th>
-														<th scope="col">Costo</th>
+														<th scope="col">Estudiante</th>
+														<th scope="col">Curso</th>
 														<th scope="col">Fecha</th>
 														<th scope="col">Estado</th>
 														<th></th>
 													</tr>
 												</thead>
 												<tbody>
-													<tr th:each="curso: ${lista}">
-														<td th:text="${curso.idCurso}"></td>
-														<td th:text="${curso.nombre}"></td>
-														<td th:text="${curso.descripcion}"></td>
-														<td th:text="${curso.costo}"></td>
-														<td th:text="${curso.fechaRegistro}"></td>
-														<td th:text="${curso.estado}"></td>
-														<td><a th:href="@{/editarcurso/}+ ${curso.idCurso}"
+													<tr th:each="ins: ${lista}">
+														<td th:text="${ins.idInscripcion}"></td>
+														<td th:text="${ins.fkEstudiante.nombre}"></td>
+														<td th:text="${ins.FkCurso.nombre}"></td>
+														<td th:text="${ins.fechaInscripcion}"></td>
+														<td th:text="${ins.estado}"></td>
+														<td><a th:href="@{/editarinscripcion/}+ ${ins.idInscripcion}"
 															class="btn"><i class="ti-pencil-alt"></i></a> <a
-															th:href="@{/eliminarcurso/}+ ${curso.idCurso}"
+															th:href="@{/eliminarinscripcion/}+ ${ins.idInscripcion}"
 															class="btn "
 															onclick="return confirm('¿Esta seguro que desea eliminar el registro?')"><i
 																class="ti-trash"></i></a></td>
